@@ -3,6 +3,7 @@ import math
 
 curious_nums = []
 
+# Came up with an arbitrary upper limit
 for i in range(3, 1000000):
 	sum_of_facts = reduce(lambda x, y: int(x) + math.factorial(int(y)), str(i), 0)
 	if sum_of_facts == i:
