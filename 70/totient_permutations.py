@@ -10,7 +10,7 @@ def is_permutation(a, b):
 min_ratio = float(1000000000)
 min_n = 0
 
-for n in xrange(2, 10 ** 7):
+for n in xrange(10 ** 6, 10 ** 7):
 	t = totient(n)
 	if is_permutation(n, t):
 		ratio = float(n) / float(t)  
