@@ -1,4 +1,14 @@
 #!/usr/bin/python2.7
+
+# To really make this faster, find the biggest number < 10 ** 7 which is the multiple
+# of two primes, where the totient function is a permutation
+#
+# This is because since phi(n) = n(1-1/p1)(1-1/p2)...(1-1/pk)
+# n/phi(n) = 1/((1-1/p1)(1-1/p2)...(1-1/pk))
+# We want to minimise n/phi(n) by maximising (1-1/p1)(1-1/p2)...(1-1/pk)
+# So to maximise it, we need to minimise the number of entries (each multiplication makes it smaller)
+# But also make p as large as possible...
+
 import os, sys
 sys.path.append("../69")
 
