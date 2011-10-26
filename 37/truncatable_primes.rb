@@ -1,17 +1,9 @@
 #!/usr/bin/ruby
 
+require File.dirname(File.expand_path(__FILE__)) + '/../util/ruby/primes'
 require 'set'
 
-def sieve(x)
-	limit = Math.sqrt(x).ceil
-	primes = Set.new((2..x))
-	(2..limit).each do |d| 
-		primes.select! { |p| p == d || p % d != 0 }
-	end
-	primes
-end
-
-PRIMES = sieve(800000)
+PRIMES = Primes::sieve(800000)
 NON_TRUNCATABLE = [2, 3, 5, 7]
 
 def is_truncatable_prime?(p)

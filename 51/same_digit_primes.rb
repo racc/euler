@@ -1,15 +1,6 @@
 #!/usr/bin/ruby
 
-def sieve(x)
-	primes = (0..x).to_a
-	limit = (x ** (0.5)).to_i
-
-	(2..limit).each do |s|
-		(2 * s).step(x, s).each { |t| primes[t] = nil }
-	end
-	primes[0..1] = nil
-	primes.compact!
-end
+require File.dirname(File.expand_path(__FILE__)) + '/../util/ruby/primes'
 
 def bit_locations(selector, on = true)
 	locs = []
@@ -36,7 +27,7 @@ def off_values(p, selector)
 end
 		
 limit = 1000000
-primes = sieve(limit).map { |x| x.to_s.chars.to_a }.group_by { |x| x.size }
+primes = Primes::sieve(limit).map { |x| x.to_s.chars.to_a }.group_by { |x| x.size }
 
 primes.each do |size, subset|
 	series = (1..(2**size - 1)).map do |n| 
