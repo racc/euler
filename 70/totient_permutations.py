@@ -10,8 +10,7 @@
 # But also make p as large as possible...
 
 import os, sys
-sys.path.append("../69")
-
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../util/python/")
 from totient import *
 
 def is_permutation(a, b):
