@@ -1,17 +1,11 @@
 #!/usr/bin/python2.7
 from math import ceil, sqrt
-
-def sieve(until):
-	primes = range(2, until + 1)
-	limit = int(ceil(sqrt(until)))
-
-	for i in xrange(2, limit):
-		primes[:] = [r for r in primes if r % i != 0 or r == i]
-
-	return primes
+import os, sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../util/python/")
+from totient import primesbelow
 
 num_primes = 1000000
-primes = sieve(num_primes)
+primes = primesbelow(num_primes)
 primes_len = len(primes)
 prime_set = set(primes)
 
